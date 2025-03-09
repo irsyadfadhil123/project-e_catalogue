@@ -1,6 +1,7 @@
 <?php
 namespace App\Services;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class CatalogService
@@ -17,5 +18,12 @@ class CatalogService
         $response = Http::get("https://dummyjson.com/products/$id");
 
         return $response->successful() ? $response->json() : [];
+    }
+
+    public function postProduct(array $data)
+    {
+        $response = Http::post('https://dummyjson.com/products/add', $data);
+
+        return $response->json();
     }
 }

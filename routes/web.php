@@ -12,3 +12,5 @@ Route::get('/add', function () {
 });
 
 Route::get('/catalogue', [CatalogueController::class, 'index']);
+
+Route::post('/post-product', [CatalogueController::class, 'postProduct'])->name('post.product');
