@@ -15,15 +15,13 @@ class CatalogService
 
     public function getProductById($id)
     {
-        $response = Http::get("https://dummyjson.com/products/$id");
+        $response = Http::get("https://dummyjson.com/products/{$id}");
 
         return $response->successful() ? $response->json() : [];
     }
 
     public function postProduct(array $data)
     {
-        $response = Http::post('https://dummyjson.com/products/add', $data);
-
-        return $response->json();
+        return $response = Http::post('https://dummyjson.com/products/add', $data);
     }
 }

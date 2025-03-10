@@ -22,6 +22,17 @@ class CatalogueController extends Controller
         return view('catalogue', compact('products'));
     }
 
+    public function details($id)
+    {
+        $details = $this->catalogService->getProductById($id);
+
+        if (!$details) {
+            abort(404, 'Product not found');
+        }
+
+        return view('detail', compact('details'));
+    }
+
     public function post(Request $request)
     {
         $request->validate([
@@ -34,7 +45,12 @@ class CatalogueController extends Controller
         $response = $this->catalogService->postProduct($request->only(['title', 'brand', 'price', 'description']));
 
         if ($response->successful()) {
-            return redirect()->back()->with('success', 'Product added successfully!');
+            $data = $response->json();
+
+            return redirect()->back()->with([
+                'success' => 'Product added successfully!',
+                'response' => $data
+            ]);
         } else {
             return redirect()->back()->with('failure', 'Something went wrong!');
         }
