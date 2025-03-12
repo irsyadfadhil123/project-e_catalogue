@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\CatalogService;
+use App\Services\GeminiService;
 use Illuminate\Support\Facades\Http;
 
 class CatalogueController extends Controller
 {
     protected $catalogService;
+    protected $geminiService;
 
-    public function __construct(CatalogService $catalogService)
+    public function __construct(CatalogService $catalogService, GeminiService $geminiService)
     {
         $this->catalogService = $catalogService;
+        $this->geminiService = $geminiService;
     }
 
     public function index()
@@ -22,15 +25,18 @@ class CatalogueController extends Controller
         return view('catalogue', compact('products'));
     }
 
-    public function details($id)
+    public function details($id, $category)
     {
         $details = $this->catalogService->getProductById($id);
+        $category = $this->geminiService->postGenerate($category);
 
         if (!$details) {
             abort(404, 'Product not found');
+        } else if (!$category) {
+            abort(404, 'Generate Error');
         }
 
-        return view('detail', compact('details'));
+        return view('detail', compact('details', 'category'));
     }
 
     public function post(Request $request)

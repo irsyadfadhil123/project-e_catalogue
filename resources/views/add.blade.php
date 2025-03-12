@@ -1,6 +1,6 @@
 <x-layout>
     <div class="mx-72 mt-32">
-        <form action="{{ route('post.product') }}" method="POST">
+        <form action="{{ route('product.store') }}" method="POST">
             @csrf
             <div class="space-y-12">
                 <div class="border-b border-gray-900/10 pb-12">
@@ -45,7 +45,7 @@
             </div>
 
             <div class="mt-6 flex items-center justify-end gap-x-6">
-                <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add</button>
+                <button type="submit" class="rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-green-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add</button>
             </div>
         </form>
         @if(session('success'))
@@ -75,7 +75,7 @@
                                             </svg>
                                         </div>
                                         <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                                            <h3 class="text-base font-semibold text-gray-900" id="modal-title">Deactivate account</h3>
+                                            <h3 class="text-base font-semibold text-gray-900" id="modal-title">Add Product Success</h3>
                                             <div class="mt-2">
                                                 <p class="text-sm text-gray-500">{{ session('success') }}</p>
                                             </div>
@@ -94,7 +94,7 @@
             </div>
         @endif
 
-        @if(session('error'))
+        @if(session('failure'))
             <div x-data="{ open: true }">
                 <!-- Modal -->
                 <div x-show="open" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">

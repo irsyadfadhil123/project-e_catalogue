@@ -17,8 +17,8 @@
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
                 <a href="/" class="text-sm/6 font-semibold text-gray-900">Home</a>
-                <a href="/catalogue" class="text-sm/6 font-semibold text-gray-900">Catalogue</a>
-                <a href="/add" class="text-sm/6 font-semibold text-gray-900">Add Product</a>
+                <a href="{{ route('product.index') }}" class="text-sm/6 font-semibold text-gray-900">Catalogue</a>
+                <a href="{{ route('product.create') }}" class="text-sm/6 font-semibold text-gray-900">Add Product</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             </div>
