@@ -8,14 +8,14 @@ class CatalogService
 {
     public function getProducts()
     {
-        $response = Http::get('https://dummyjson.com/products?limit=16');
+        $response = Http::withToken(env('CATALOG_API_KEY'))->get('http://127.0.0.1:8000/api/products');
 
         return $response->successful() ? $response->json() : [];
     }
 
     public function getProductById($id)
     {
-        $response = Http::get("https://dummyjson.com/products/{$id}");
+        $response = Http::withToken(env('CATALOG_API_KEY'))->get("http://127.0.0.1:8000/api/products/{$id}");
 
         return $response->successful() ? $response->json() : [];
     }
