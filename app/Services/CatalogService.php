@@ -22,16 +22,16 @@ class CatalogService
 
     public function postProduct(array $data)
     {
-        return Http::post('https://dummyjson.com/products/add', $data);
+        return Http::withToken(env('CATALOG_API_KEY'))->post("http://127.0.0.1:8000/api/products", $data);
     }
 
     public function updateProduct($id, array $data)
     {
-        return Http::put("https://dummyjson.com/products/{$id}", $data);
+        return Http::withToken(env('CATALOG_API_KEY'))->put("http://127.0.0.1:8000/api/products/{$id}", $data);
     }
 
     public function deleteProduct($id)
     {
-        return Http::delete("https://dummyjson.com/products/{$id}");
+        return Http::withToken(env('CATALOG_API_KEY'))->delete("http://127.0.0.1:8000/api/products/{$id}");
     }
 }

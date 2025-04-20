@@ -69,8 +69,7 @@ class ProductsController extends Controller
         $category = request()->query('category');
 
         $details = $this->catalogService->getProductById($id);
-//        $promotion = $this->geminiService->postGenerate($category);
-        $promotion = 'tulalit';
+        $promotion = $this->geminiService->postGenerate($category);
 
         if (!$details) {
             abort(404, 'Product not found');

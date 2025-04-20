@@ -10,8 +10,8 @@
                 <!-- Options -->
                 <div class="mt-4 lg:row-span-3 lg:mt-0">
                     <h2 class="sr-only">Product information</h2>
-                    <img src="{{ $details['images'][0] }}" alt="Image not found." class="aspect-square w-full rounded-lg bg-gray-200 object-cover xl:aspect-7/8">
-                    <p class="mt-2 text-3xl tracking-tight text-gray-900">${{ $details['price'] }}</p>
+                    <img src="{{ $details['image'] }}" alt="Image not found." class="aspect-square w-full rounded-lg bg-gray-200 object-cover xl:aspect-7/8">
+                    <p class="mt-2 text-3xl tracking-tight text-gray-900">Rp. {{ $details['price'] }}</p>
                     <p class="mt-2 text-sm text-gray-600">Stock: {{ $details['stock'] ?? '-' }}</p>
                     <div class="mt-1">
                         <div class="mt-4 space-y-6">
@@ -35,18 +35,6 @@
 
                         <div class="mt-4 space-y-6">
                             <p class="text-lg text-gray-600">{{ $details['brand'] ?? 'No Brand' }}</p>
-                        </div>
-                    </div>
-
-                    <div class="mt-10">
-                        <h3 class="text-xl font-medium text-gray-900">Dimensions</h3>
-
-                        <div class="mt-4">
-                            <ul role="list" class="list-disc space-y-2 pl-4 text-lg">
-                                <li class="text-gray-400"><span class="text-gray-600">Width: {{ $details['dimensions']['width'] ?? '-' }}</span></li>
-                                <li class="text-gray-400"><span class="text-gray-600">Height: {{ $details['dimensions']['height'] ?? '-' }}</span></li>
-                                <li class="text-gray-400"><span class="text-gray-600">Depth: {{ $details['dimensions']['depth'] ?? '-' }}</span></li>
-                            </ul>
                         </div>
                     </div>
 

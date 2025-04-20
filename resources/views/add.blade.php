@@ -8,22 +8,15 @@
                     <p class="mt-1 text-sm/6 text-gray-600">Add your own product to the catalogue.</p>
 
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                        <div class="sm:col-span-full">
-                            <label for="title" class="block text-sm/6 font-medium text-gray-900">Title</label>
+                        <div class="sm:col-span-3">
+                            <label for="title" class="block text-sm/6 font-medium text-gray-900">Title*</label>
                             <div class="mt-2">
                                 <input required id="title" name="title" type="text" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
                             </div>
                         </div>
 
-                        <div class="sm:col-span-full">
-                            <label for="brand" class="block text-sm/6 font-medium text-gray-900">Brand</label>
-                            <div class="mt-2">
-                                <input id="brand" name="brand" type="text" autocomplete="email" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
-                            </div>
-                        </div>
-
                         <div class="sm:col-span-1">
-                            <label for="price" class="block text-sm/6 font-medium text-gray-900">Price</label>
+                            <label for="price" class="block text-sm/6 font-medium text-gray-900">Price*</label>
                             <div class="mt-2">
                                 <div class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
                                     <div class="shrink-0 text-base text-gray-500 select-none sm:text-sm/6">$</div>
@@ -31,6 +24,14 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="sm:col-span-2">
+                            <label for="category" class="block text-sm/6 font-medium text-gray-900">Category*</label>
+                            <div class="mt-2">
+                                <input required id="category" name="category" type="text" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                            </div>
+                        </div>
+
 
                         <div class="col-span-full">
                             <label for="description" class="block text-sm/6 font-medium text-gray-900">Description</label>
@@ -40,6 +41,19 @@
                             <p class="mt-3 text-sm/6 text-gray-600">Write a few sentences about the product.</p>
                         </div>
 
+                        <div class="sm:col-span-full">
+                            <label for="brand" class="block text-sm/6 font-medium text-gray-900">Brand</label>
+                            <div class="mt-2">
+                                <input id="brand" name="brand" type="text" autocomplete="email" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                            </div>
+                        </div>
+
+                        <div class="sm:col-span-full">
+                            <label for="image" class="block text-sm/6 font-medium text-gray-900">Image</label>
+                            <div class="mt-2">
+                                <input id="image" name="image" type="text" autocomplete="email" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
