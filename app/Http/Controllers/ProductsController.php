@@ -42,12 +42,14 @@ class ProductsController extends Controller
     {
         $request->validate([
             'title' => 'required|string',
-            'brand' => 'nullable|string',
             'price' => 'required|numeric',
+            'category' => 'required|string',
             'description' => 'nullable|string',
+            'brand' => 'nullable|string',
+            'image' => 'nullable|string',
         ]);
 
-        $response = $this->catalogService->postProduct($request->only(['title', 'brand', 'price', 'description']));
+        $response = $this->catalogService->postProduct($request->only(['title', 'price', 'category', 'description', 'brand', 'image']));
 
         if ($response->successful()) {
             $data = $response->json();
@@ -95,9 +97,11 @@ class ProductsController extends Controller
     {
         $validateData = $request->validate([
             'title' => 'required|string',
-            'brand' => 'nullable|string',
             'price' => 'required|numeric',
+            'category' => 'required|string',
             'description' => 'nullable|string',
+            'brand' => 'nullable|string',
+            'image' => 'nullable|string',
         ]);
 
         $response = $this->catalogService->updateProduct($id, $validateData);
@@ -124,7 +128,7 @@ class ProductsController extends Controller
         if ($response->successful()) {
             $data = $response->json();
 
-            return redirect()->back()->with([
+            return redirect()->route('product.index')->with([
                 'success' => 'Product Deleted successfully!',
                 'response' => $data
             ]);

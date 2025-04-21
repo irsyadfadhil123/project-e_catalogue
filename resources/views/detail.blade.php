@@ -65,7 +65,7 @@
                                              class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all w-full max-w-4xl"
                                              @click.away="open = false">
 
-                                            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 w-full">
+                                            <div class="bg-white px-4 pt-6 pb-4 sm:p-6 sm:pb-4 w-full">
                                                 <div class="sm:flex sm:items-start">
                                                     <div class="mx-auto flex size-12 shrink-0 items-center justify-center rounded-full bg-blue-100 sm:mx-0 sm:size-10">
                                                         <svg class="size-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
@@ -78,26 +78,34 @@
                                                         <form action="/product/{{ $details['id'] }}" method="POST">
                                                             @csrf
                                                             @method('PUT')
-                                                            <div class="mt-4 space-y-4">
-                                                                <div>
-                                                                    <label for="title" class="block text-sm font-medium text-gray-900">Title</label>
+                                                            <div>
+                                                                <div class="mt-4">
+                                                                    <label for="title" class="block text-sm font-medium text-gray-900">Title*</label>
                                                                     <input required id="title" name="title" type="text" value="{{ $details['title'] }}" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-indigo-600">
                                                                 </div>
-                                                                <div>
-                                                                    <label for="brand" class="block text-sm font-medium text-gray-900">Brand</label>
-                                                                    <input id="brand" name="brand" type="text" value="{{ $details['brand'] }}" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-indigo-600">
-                                                                </div>
-                                                                <div>
-                                                                    <label for="price" class="block text-sm font-medium text-gray-900">Price</label>
+                                                                <div class="mt-4">
+                                                                    <label for="price" class="block text-sm font-medium text-gray-900">Price*</label>
                                                                     <div class="flex items-center rounded-md bg-white px-3 py-1.5 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-indigo-600">
-                                                                        <span class="text-gray-500">$</span>
+                                                                        <span class="text-gray-500">Rp</span>
                                                                         <input required type="number" name="price" id="price" value="{{ $details['price'] }}" class="block w-full pl-2 text-base text-gray-900 placeholder-gray-400 focus:outline-none" placeholder="59.00">
                                                                     </div>
                                                                 </div>
-                                                                <div>
+                                                                <div class="mt-4">
+                                                                    <label for="category" class="block text-sm font-medium text-gray-900">Category*</label>
+                                                                    <input id="category" name="category" type="text" value="{{ $details['category'] }}" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-indigo-600">
+                                                                </div>
+                                                                <div class="mt-4">
                                                                     <label for="description" class="block text-sm font-medium text-gray-900">Description</label>
                                                                     <textarea name="description" id="description" rows="3" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-indigo-600">{{ $details['description'] }}</textarea>
                                                                     <p class="mt-1 text-sm text-gray-600">Write a few sentences about the product.</p>
+                                                                </div>
+                                                                <div class="mt-4">
+                                                                    <label for="brand" class="block text-sm font-medium text-gray-900">Brand</label>
+                                                                    <input id="brand" name="brand" type="text" value="{{ $details['brand'] }}" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-indigo-600">
+                                                                </div>
+                                                                <div class="mt-4">
+                                                                    <label for="image" class="block text-sm font-medium text-gray-900">Image Link</label>
+                                                                    <input id="image" name="image" type="text" value="{{ $details['image'] }}" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-indigo-600">
                                                                 </div>
                                                             </div>
                                                             <div class="mt-6 flex items-center justify-end gap-x-6">
