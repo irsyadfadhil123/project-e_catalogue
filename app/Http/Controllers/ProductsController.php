@@ -68,18 +68,13 @@ class ProductsController extends Controller
      */
     public function show(string $id)
     {
-        $category = request()->query('category');
-
         $details = $this->catalogService->getProductById($id);
-        $promotion = $this->geminiService->postGenerate($category);
 
         if (!$details) {
             abort(404, 'Product not found');
-        } else if (!$promotion) {
-            abort(404, 'Generate Error');
         }
 
-        return view('detail', compact('details', 'promotion'));
+        return view('detail', compact('details'));
     }
 
     /**
