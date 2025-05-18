@@ -4,15 +4,15 @@
             <!-- Product info -->
             <div class="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto_auto_1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
                 <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-                    <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{ $details['title'] }}</h1>
+                    <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{ $details['data']['title'] }}</h1>
                 </div>
 
                 <!-- Options -->
                 <div class="mt-4 lg:row-span-3 lg:mt-0">
                     <h2 class="sr-only">Product information</h2>
-                    <img src="{{ $details['image'] ?? "https://www.freeiconspng.com/uploads/no-image-icon-6.png" }}" alt="Image not found." class="aspect-square w-full rounded-lg bg-gray-200 object-cover xl:aspect-7/8">
-                    <p class="mt-2 text-3xl tracking-tight text-gray-900">Rp. {{ $details['price'] }}</p>
-                    <p class="mt-2 text-sm text-gray-600">Stock: {{ $details['stock'] ?? '-' }}</p>
+                    <img src="{{ $details['data']['image'] ?? "https://www.freeiconspng.com/uploads/no-image-icon-6.png" }}" alt="Image not found." class="aspect-square w-full rounded-lg bg-gray-200 object-cover xl:aspect-7/8">
+                    <p class="mt-2 text-3xl tracking-tight text-gray-900">Rp. {{ $details['data']['price'] }}</p>
+                    <p class="mt-2 text-sm text-gray-600">Stock: {{ $details['data']['stock'] ?? '-' }}</p>
                 </div>
 
                 <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pr-8 lg:pb-16">
@@ -21,7 +21,7 @@
                         <h3 class="sr-only">Description</h3>
 
                         <div class="space-y-6">
-                            <p class="text-xl text-gray-900">{{ $details['description'] ?? '-' }}</p>
+                            <p class="text-xl text-gray-900">{{ $details['data']['description'] ?? '-' }}</p>
                         </div>
                     </div>
 
@@ -29,7 +29,7 @@
                         <h2 class="text-xl font-medium text-gray-900">Brand</h2>
 
                         <div class="mt-4 space-y-6">
-                            <p class="text-lg text-gray-600">{{ $details['brand'] ?? 'No Brand' }}</p>
+                            <p class="text-lg text-gray-600">{{ $details['data']['brand'] ?? 'No Brand' }}</p>
                         </div>
                     </div>
 
@@ -70,33 +70,25 @@
                                                     <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
                                                         <h3 class="text-base font-semibold text-gray-900" id="modal-title">Edit Product</h3>
                                                         <p class="mt-1 text-sm text-gray-600">Edit your product in the catalogue.</p>
-                                                        <form action="/product/{{ $details['id'] }}" method="POST">
+                                                        <form action="/product/{{ $details['data']['id'] }}" method="POST">
                                                             @csrf
                                                             @method('PUT')
                                                             <div>
                                                                 <div class="mt-4">
                                                                     <label for="title" class="block text-sm font-medium text-gray-900">Title*</label>
-                                                                    <input required id="title" name="title" type="text" value="{{ $details['title'] }}" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-indigo-600">
+                                                                    <input required id="title" name="title" type="text" value="{{ $details['data']['title'] }}" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-indigo-600">
                                                                 </div>
                                                                 <div class="mt-4">
                                                                     <label for="price" class="block text-sm font-medium text-gray-900">Price*</label>
                                                                     <div class="flex items-center rounded-md bg-white px-3 py-1.5 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-indigo-600">
                                                                         <span class="text-gray-500">Rp</span>
-                                                                        <input required type="number" name="price" id="price" value="{{ $details['price'] }}" class="block w-full pl-2 text-base text-gray-900 placeholder-gray-400 focus:outline-none" placeholder="59.00">
+                                                                        <input required type="number" name="price" id="price" value="{{ $details['data']['price'] }}" class="block w-full pl-2 text-base text-gray-900 placeholder-gray-400 focus:outline-none" placeholder="59.00">
                                                                     </div>
                                                                 </div>
                                                                 <div class="mt-4">
                                                                     <label for="description" class="block text-sm font-medium text-gray-900">Description</label>
-                                                                    <textarea name="description" id="description" rows="3" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-indigo-600">{{ $details['description'] }}</textarea>
+                                                                    <textarea name="description" id="description" rows="3" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-indigo-600">{{ $details['data']['description'] }}</textarea>
                                                                     <p class="mt-1 text-sm text-gray-600">Write a few sentences about the product.</p>
-                                                                </div>
-                                                                <div class="mt-4">
-                                                                    <label for="brand" class="block text-sm font-medium text-gray-900">Brand</label>
-                                                                    <input id="brand" name="brand" type="text" value="{{ $details['brand'] }}" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-indigo-600">
-                                                                </div>
-                                                                <div class="mt-4">
-                                                                    <label for="image" class="block text-sm font-medium text-gray-900">Image Link</label>
-                                                                    <input id="image" name="image" type="text" value="{{ $details['image'] }}" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-indigo-600">
                                                                 </div>
                                                             </div>
                                                             <div class="mt-6 flex items-center justify-end gap-x-6">
@@ -150,7 +142,7 @@
                                             </div>
 
                                             <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                                                <form action="/product/{{ $details['id'] }}" method="POST">
+                                                <form action="/product/{{ $details['data']['id'] }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="inline-flex w-full justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-600 sm:ml-3 sm:w-auto">Delete</button>
