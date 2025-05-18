@@ -4,7 +4,7 @@
             <!-- Product info -->
             <div class="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto_auto_1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
                 <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-                    <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{ $details['data']['title'] }}</h1>
+                    <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{ $details['data']['name'] }}</h1>
                 </div>
 
                 <!-- Options -->
@@ -75,8 +75,8 @@
                                                             @method('PUT')
                                                             <div>
                                                                 <div class="mt-4">
-                                                                    <label for="title" class="block text-sm font-medium text-gray-900">Title*</label>
-                                                                    <input required id="title" name="title" type="text" value="{{ $details['data']['title'] }}" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-indigo-600">
+                                                                    <label for="name" class="block text-sm font-medium text-gray-900">Name*</label>
+                                                                    <input required id="name" name="name" type="text" value="{{ $details['data']['name'] }}" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-indigo-600">
                                                                 </div>
                                                                 <div class="mt-4">
                                                                     <label for="price" class="block text-sm font-medium text-gray-900">Price*</label>
