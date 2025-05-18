@@ -10,14 +10,9 @@
                 <!-- Options -->
                 <div class="mt-4 lg:row-span-3 lg:mt-0">
                     <h2 class="sr-only">Product information</h2>
-                    <img src="{{ $details['image'] }}" alt="Image not found." class="aspect-square w-full rounded-lg bg-gray-200 object-cover xl:aspect-7/8">
+                    <img src="{{ $details['image'] ?? "https://www.freeiconspng.com/uploads/no-image-icon-6.png" }}" alt="Image not found." class="aspect-square w-full rounded-lg bg-gray-200 object-cover xl:aspect-7/8">
                     <p class="mt-2 text-3xl tracking-tight text-gray-900">Rp. {{ $details['price'] }}</p>
                     <p class="mt-2 text-sm text-gray-600">Stock: {{ $details['stock'] ?? '-' }}</p>
-                    <div class="mt-1">
-                        <div class="mt-4 space-y-6">
-                            <p class="text-base text-gray-800">{{ $promotion['candidates'][0]['content']['parts'][0]['text'] ?? 'Tulalit tulalit tulalit' }}</p>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pr-8 lg:pb-16">
@@ -89,10 +84,6 @@
                                                                         <span class="text-gray-500">Rp</span>
                                                                         <input required type="number" name="price" id="price" value="{{ $details['price'] }}" class="block w-full pl-2 text-base text-gray-900 placeholder-gray-400 focus:outline-none" placeholder="59.00">
                                                                     </div>
-                                                                </div>
-                                                                <div class="mt-4">
-                                                                    <label for="category" class="block text-sm font-medium text-gray-900">Category*</label>
-                                                                    <input id="category" name="category" type="text" value="{{ $details['category'] }}" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-indigo-600">
                                                                 </div>
                                                                 <div class="mt-4">
                                                                     <label for="description" class="block text-sm font-medium text-gray-900">Description</label>
