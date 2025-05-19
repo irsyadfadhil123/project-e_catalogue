@@ -41,15 +41,12 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string',
+            'name' => 'required|string',
             'price' => 'required|numeric',
-            'category' => 'required|string',
             'description' => 'nullable|string',
-            'brand' => 'nullable|string',
-            'image' => 'nullable|string',
         ]);
 
-        $response = $this->catalogService->postProduct($request->only(['title', 'price', 'category', 'description', 'brand', 'image']));
+        $response = $this->catalogService->postProduct($request->only(['name', 'price', 'description',]));
 
         if ($response->successful()) {
             $data = $response->json();
@@ -91,12 +88,9 @@ class ProductsController extends Controller
     public function update(Request $request, string $id)
     {
         $validateData = $request->validate([
-            'title' => 'required|string',
+            'name' => 'required|string',
             'price' => 'required|numeric',
-            'category' => 'required|string',
             'description' => 'nullable|string',
-            'brand' => 'nullable|string',
-            'image' => 'nullable|string',
         ]);
 
         $response = $this->catalogService->updateProduct($id, $validateData);
