@@ -15,7 +15,7 @@ class CatalogService
 
     public function getProductById($id)
     {
-        $response = Http::get(env('CATALOG_API_ENDPOINT') . "/product/{$id}");
+        $response = Http::get(env('CATALOG_API_ENDPOINT') . "/product/$id");
 
         return $response->successful() ? $response->json() : [];
     }
@@ -27,11 +27,11 @@ class CatalogService
 
     public function updateProduct($id, array $data)
     {
-        return Http::put(env('CATALOG_API_ENDPOINT') . "/product/{$id}", $data);
+        return Http::put(env('CATALOG_API_ENDPOINT') . "/product/$id", $data);
     }
 
     public function deleteProduct($id)
     {
-        return Http::delete(env('CATALOG_API_ENDPOINT') . "/product/{$id}");
+        return Http::delete(env('CATALOG_API_ENDPOINT') . "/product/$id");
     }
 }

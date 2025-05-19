@@ -43,10 +43,11 @@ class ProductsController extends Controller
         $request->validate([
             'name' => 'required|string',
             'price' => 'required|numeric',
+            'stock' => 'required|numeric',
             'description' => 'nullable|string',
         ]);
 
-        $response = $this->catalogService->postProduct($request->only(['name', 'price', 'description',]));
+        $response = $this->catalogService->postProduct($request->only(['name', 'stock' , 'price', 'description',]));
 
         if ($response->successful()) {
             $data = $response->json();
@@ -90,6 +91,7 @@ class ProductsController extends Controller
         $validateData = $request->validate([
             'name' => 'required|string',
             'price' => 'required|numeric',
+            'stock' => 'required|numeric',
             'description' => 'nullable|string',
         ]);
 

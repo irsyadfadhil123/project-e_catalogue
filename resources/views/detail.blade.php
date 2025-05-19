@@ -86,6 +86,12 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="mt-4">
+                                                                    <label for="stock" class="block text-sm font-medium text-gray-900">Stock*</label>
+                                                                    <div class="flex items-center rounded-md bg-white px-3 py-1.5 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-indigo-600">
+                                                                        <input required type="number" name="stock" id="stock" value="{{ $details['data']['stock'] }}" class="block w-full pl-2 text-base text-gray-900 placeholder-gray-400 focus:outline-none">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="mt-4">
                                                                     <label for="description" class="block text-sm font-medium text-gray-900">Description</label>
                                                                     <textarea name="description" id="description" rows="3" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-indigo-600">{{ $details['data']['description'] }}</textarea>
                                                                     <p class="mt-1 text-sm text-gray-600">Write a few sentences about the product.</p>
